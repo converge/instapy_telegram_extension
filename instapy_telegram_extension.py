@@ -1,24 +1,27 @@
-from app import InstaPy
+try:
+    from app import InstaPy
+except:
+    from instapy import InstaPy
 import telepot
 import sqlite3
 
 
 class InstaPyTelegramExtension(InstaPy):
 
-    bot_key = ''
-
-    def __init__(self):
-        self.bot = telepot.Bot(self.bot_key)
+    def __init__(self, bot_key, user_id, session):
+        self.bot = telepot.Bot(bot_key)
+        self.user_id = user_id
+        self.core = session
         self.likes = 0
         self.comments = 0
         self.follows = 0
         self.unfollows = 0
         self.server_calls = 0
 
-    def go_to_google(self, session):
-        session.browser.get('http://www.google.com')
+    def hello(self):
+        self.bot.sendMessage(self.user_id, "Hello World !")
 
-    def collect_data(self):
+    def send_daily_report(self):
         conn = sqlite3.connect('./db/instapy.db')
         with conn:
             conn.row_factory = sqlite3.Row
@@ -35,9 +38,8 @@ class InstaPyTelegramExtension(InstaPy):
             self.unfollos = data['unfollows']
             self.server_calls = data['server_calls']
 
-    def send_report(self, username):
         self.bot.sendMessage(
-            148053207, 'IstaPy Report!\nprofile: {}\nLiked: {}\n'
+            self.user_id, '# IstaPy Daily Report #\nprofile: {}\nLiked: {}\n'
             'Commented: {}\nFollowed: {}\nUnfollowed: {}\nserver calls: {}'
-            .format(username, self.likes, self.comments, self.follows,
-                    self.unfollows, self.server_calls))
+            .format(self.core.username, self.likes, self.comments,
+                    self.follows, self.unfollows, self.server_calls))

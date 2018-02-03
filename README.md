@@ -36,4 +36,3 @@ telegram_ext.send_daily_report()
 
 session.end()
 ```
-### Feel free to make a donation: 1GRzojySc9vDXZeF4c5P4FuzNBbs6Mkzh (bitcoin address)

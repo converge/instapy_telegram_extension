@@ -8,16 +8,13 @@ InstaPy Telegram Extension
 
 ### How to install
 
-- git clone git@github.com:converge/instapy_telegram_extension.git
-- move instapy_telegram_extension (folder) to InstaPy/extensions
-- add ```from extensions.instapy_telegram_extension import InstaPyTelegramExtension```
-to your config file (config.py / quickstart.py) file.
+- pip install git@github.com:converge/instapy_telegram_extension.git
 
 ### Usage example
 
 ```python
 from instapy import InstaPy
-from extensions.instapy_telegram_extension import InstaPyTelegramExtension
+from instapy_telegram.extension import InstaPyTelegramExtension
 
 insta_username = ''
 insta_password = ''

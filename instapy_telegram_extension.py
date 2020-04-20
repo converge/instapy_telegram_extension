@@ -26,7 +26,7 @@ class InstaPyTelegramExtension(InstaPy):
         with conn:
             conn.row_factory = sqlite3.Row
             cur = conn.cursor()
-            sql = "SELECT * FROM statistics WHERE created == date('now')"
+            sql = "SELECT * FROM recordActivity WHERE created == date('now')"
             cur.execute(sql)
             data = cur.fetchone()
 
@@ -35,11 +35,11 @@ class InstaPyTelegramExtension(InstaPy):
             self.likes = data['likes']
             self.comments = data['comments']
             self.follows = data['follows']
-            self.unfollos = data['unfollows']
+            self.unfollows = data['unfollows']
             self.server_calls = data['server_calls']
 
         self.bot.sendMessage(
-            self.user_id, '# IstaPy Daily Report #\nprofile: {}\nLiked: {}\n'
+            self.user_id, '# InstaPy Daily Report #\nprofile: {}\nLiked: {}\n'
             'Commented: {}\nFollowed: {}\nUnfollowed: {}\nserver calls: {}'
             .format(self.core.username, self.likes, self.comments,
                     self.follows, self.unfollows, self.server_calls))

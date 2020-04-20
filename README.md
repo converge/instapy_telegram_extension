@@ -8,7 +8,7 @@
 
 ### How to install
 
-- git clone git@github.com:converge/instapy_telegram_extension.git
+- git clone this repository
 - move instapy_telegram_extension (folder) to InstaPy/extensions
 - install dependencies with `pip install -r requirements.txt`
 - add `from extensions.instapy_telegram_extension import InstaPyTelegramExtension`

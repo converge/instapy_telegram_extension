@@ -1,5 +1,5 @@
-InstaPy Telegram Extension
---
+## InstaPy Telegram Extension
+
 ### Available methods
 
 - hello (print Hello World to your Telegram)
@@ -10,8 +10,9 @@ InstaPy Telegram Extension
 
 - git clone git@github.com:converge/instapy_telegram_extension.git
 - move instapy_telegram_extension (folder) to InstaPy/extensions
-- add ```from extensions.instapy_telegram_extension import InstaPyTelegramExtension```
-to your config file (config.py / quickstart.py) file.
+- install dependencies with `pip install -r requirements.txt`
+- add `from extensions.instapy_telegram_extension import InstaPyTelegramExtension`
+  to your config file (config.py / quickstart.py) file.
 
 ### Usage example
 
